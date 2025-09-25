@@ -1,89 +1,23 @@
+// components/Works.tsx
 "use client";
-import { useState, useRef } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import Preloader from "./components/Preloader";
-import IntroSequence from "./components/IntroSequence";
-import { Navbar } from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import { Section } from "./components/Section";
-import ServicesSection from "./components/Services";
-import Contact from "./components/Contact";
-import { Footer } from "./components/Footer";
-import { WORKS, Work } from "./lib/constants";
 
-const ease = [0.22, 1, 0.36, 1] as const;
+import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
+import { WORKS, Work } from "../lib/constants";
 
+// anim kecil
 const fadeUp = {
   hidden: { opacity: 0, y: 14, filter: "blur(6px)" },
-  show: { opacity: 1, y: 0, filter: "blur(0px)" },
+  show:   { opacity: 1, y: 0, filter: "blur(0px)" },
 };
-const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.06 } } };
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.06 } },
+};
 
-export default function Page() {
-  const [loaded, setLoaded] = useState(false);
-  const [introDone, setIntroDone] = useState(false);
-
-  return (
-    <main>
-      {/* Preloader */}
-      <AnimatePresence>
-        {!loaded && <Preloader key="loader" onDone={() => setLoaded(true)} />}
-      </AnimatePresence>
-
-      {/* Intro: I am → Name → Skills */}
-      <AnimatePresence>
-        {loaded && !introDone && (
-          <IntroSequence key="intro" onDone={() => setIntroDone(true)} />
-        )}
-      </AnimatePresence>
-
-      {/* Site Content */}
-      <motion.div
-        key="site"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: introDone ? 1 : 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <Navbar />
-
-        <Hero />
-        <About />
-
-        {/* Selected Works */}
-        <Section
-          id="works"
-          title="Selected Works"
-          subtitle="Cinematic edits • Motion graphics • Design"
-        >
-          <SelectedWorks items={WORKS} />
-        </Section>
-
-        {/* Services */}
-        <Section
-          id="services"
-          title="Services"
-          subtitle="End-to-end creative with luxury motion & edit"
-        >
-          <ServicesSection />
-        </Section>
-
-        {/* Contact */}
-        <Section
-          id="contact"
-          title="Let’s Collaborate"
-          subtitle="Open for commissions, campaigns, and brand reels"
-        >
-          <Contact />
-        </Section>
-        <Footer />
-      </motion.div>
-    </main>
-  );
-}
-
-function SelectedWorks({ items }: { items: Work[] }) {
+export default function Works() {
   const prefersReduced = useReducedMotion();
+
   return (
     <motion.div
       variants={stagger}
@@ -92,7 +26,7 @@ function SelectedWorks({ items }: { items: Work[] }) {
       viewport={{ once: true, margin: "-10%" }}
       className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
     >
-      {items.map((w, i) => (
+      {WORKS.map((w, i) => (
         <WorkCard key={w.title} work={w} delay={prefersReduced ? 0 : i * 0.06} />
       ))}
     </motion.div>
@@ -102,12 +36,11 @@ function SelectedWorks({ items }: { items: Work[] }) {
 function WorkCard({ work, delay = 0 }: { work: Work; delay?: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
 
-  // Tilt hemat-performa via CSS variables (tanpa re-render React)
   const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const el = cardRef.current;
     if (!el) return;
     const r = el.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5; // -0.5..0.5
+    const x = (e.clientX - r.left) / r.width - 0.5;
     const y = (e.clientY - r.top) / r.height - 0.5;
     el.style.setProperty("--rx", `${y * -6}deg`);
     el.style.setProperty("--ry", `${x * 6}deg`);
@@ -129,7 +62,7 @@ function WorkCard({ work, delay = 0 }: { work: Work; delay?: number }) {
       target={work.href ? "_blank" : undefined}
       rel={work.href ? "noreferrer" : undefined}
       variants={fadeUp}
-      transition={{ delay, duration: 0.6, ease }}
+      transition={{ delay, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className="group block"
     >
       <div
@@ -143,7 +76,7 @@ function WorkCard({ work, delay = 0 }: { work: Work; delay?: number }) {
           transition: "transform 420ms cubic-bezier(.22,1,.36,1)",
         }}
       >
-        {/* depth glow border */}
+        {/* depth glow */}
         <div
           aria-hidden
           className="absolute inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition"
@@ -152,7 +85,6 @@ function WorkCard({ work, delay = 0 }: { work: Work; delay?: number }) {
               "0 0 0 1px rgba(207,233,255,0.18) inset, 0 20px 60px rgba(0,0,0,0.35)",
           }}
         />
-
         {/* shine sweep */}
         <motion.span
           aria-hidden
@@ -165,7 +97,6 @@ function WorkCard({ work, delay = 0 }: { work: Work; delay?: number }) {
           whileHover={{ left: "110%" }}
           transition={{ duration: 1.4, ease: "easeInOut" }}
         />
-
         {/* image */}
         <div className="aspect-[16/11] overflow-hidden">
           <img
@@ -174,10 +105,8 @@ function WorkCard({ work, delay = 0 }: { work: Work; delay?: number }) {
             loading="lazy"
             decoding="async"
             className="h-full w-full object-cover transition duration-[900ms] group-hover:scale-[1.06]"
-            style={{ transform: "translateZ(0)" }}
           />
         </div>
-
         {/* meta */}
         <div className="relative z-10 p-4 flex items-center justify-between">
           <div>
@@ -188,7 +117,6 @@ function WorkCard({ work, delay = 0 }: { work: Work; delay?: number }) {
             View →
           </div>
         </div>
-
         {/* bottom fade */}
         <div
           aria-hidden
