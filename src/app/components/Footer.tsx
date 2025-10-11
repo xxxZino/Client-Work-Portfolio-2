@@ -7,9 +7,8 @@ const EASE: Easing = [0.22, 1, 0.36, 1];
 
 const socials = [
   { name: "Instagram", href: "https://instagram.com/", icon: Instagram },
-  { name: "Behance",   href: "https://behance.net/",   icon: Behance   },
-  { name: "Dribbble",  href: "https://dribbble.com/",  icon: Dribbble  },
   { name: "YouTube",   href: "https://youtube.com/",   icon: Youtube   },
+  { name: "LinkedIn",  href: "https://linkedin.com/in/your-username", icon: Linkedin },
 ];
 
 export function Footer() {
@@ -34,7 +33,7 @@ export function Footer() {
           initial={{ opacity: 0, y: 10, filter: "blur(6px)" }}
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true, margin: "-10%" }}
-          transition={{ duration: 0.6, ease: EASE }}  // ✅ pakai EASE
+          transition={{ duration: 0.6, ease: EASE }}
           className="flex flex-col md:flex-row md:items-center md:justify-between gap-6"
         >
           <div className="flex items-center gap-3">
@@ -72,10 +71,10 @@ export function Footer() {
                 key={name}
                 href={href}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 whileHover={{ y: -2 }}
-                transition={{ duration: 0.2, ease: EASE }}  // ✅ pakai EASE
-                className="group grid h-9 w-9 place-items-center rounded-xl border border-white/10 bg-white/10 hover:bg-white/10/80"
+                transition={{ duration: 0.2, ease: EASE }}
+                className="group grid h-9 w-9 place-items-center rounded-xl border border-white/10 bg-white/10 hover:bg-white/20 transition"
                 aria-label={name}
                 title={name}
               >
@@ -106,6 +105,7 @@ export function Footer() {
             <a
               href="https://wa.me/6281234567890"
               target="_blank"
+              rel="noopener noreferrer"
               className="rounded-xl px-4 py-2 border border-white/20 text-sm hover:bg-white/5 transition"
             >
               WhatsApp
@@ -139,6 +139,7 @@ function BackToTop() {
   );
 }
 
+
 function Instagram({ className = "" }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="none">
@@ -168,6 +169,24 @@ function Youtube({ className = "" }) {
     <svg viewBox="0 0 24 24" className={className} fill="currentColor">
       <path d="M22 12c0 3.2-.4 5-1 5.6-.8.9-8.1.9-9 .9s-8.2 0-9-.9C2.4 17 2 15.2 2 12s.4-5 1-5.6C3.8 5.5 11.1 5.5 12 5.5s8.2 0 9 .9c.6.6 1 2.4 1 5.6z" />
       <path d="M10 15V9l5 3-5 3z" fill="#0b0f19" />
+    </svg>
+  );
+}
+
+function Linkedin({ className = "" }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none">
+      {/* outer rounded square */}
+      <rect x="3" y="3" width="18" height="18" rx="3.5" stroke="currentColor" strokeWidth="1.5" />
+      {/* dot for "i" */}
+      <circle cx="8" cy="10" r="1" fill="currentColor" />
+      {/* bar for "i" */}
+      <rect x="7.2" y="11.6" width="1.6" height="5" rx="0.8" fill="currentColor" />
+      {/* "n" */}
+      <path
+        d="M11.2 12v4.6h1.6v-2.3c0-1.1 1.8-1.2 1.8 0v2.3H16V13.9c0-2-2.3-2.2-3.2-1v-.9h-1.6z"
+        fill="currentColor"
+      />
     </svg>
   );
 }
