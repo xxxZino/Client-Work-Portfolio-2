@@ -26,19 +26,16 @@ export default function Page() {
 
   return (
     <main>
-      {/* Preloader */}
       <AnimatePresence>
         {!loaded && <Preloader key="loader" onDone={() => setLoaded(true)} />}
       </AnimatePresence>
 
-      {/* Intro: I am → Name → Skills */}
       <AnimatePresence>
         {loaded && !introDone && (
           <IntroSequence key="intro" onDone={() => setIntroDone(true)} />
         )}
       </AnimatePresence>
 
-      {/* Site Content */}
       <motion.div
         key="site"
         initial={{ opacity: 0 }}
@@ -50,7 +47,6 @@ export default function Page() {
         <Hero />
         <About />
 
-        {/* Selected Works */}
         <Section
           id="works"
           title="Selected Works"
@@ -59,7 +55,6 @@ export default function Page() {
           <SelectedWorks items={WORKS} />
         </Section>
 
-        {/* Services */}
         <Section
           id="services"
           title="Services"
@@ -68,7 +63,6 @@ export default function Page() {
           <ServicesSection />
         </Section>
 
-        {/* Contact */}
         <Section
           id="contact"
           title="Let’s Collaborate"
@@ -102,12 +96,11 @@ function SelectedWorks({ items }: { items: Work[] }) {
 function WorkCard({ work, delay = 0 }: { work: Work; delay?: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
 
-  // Tilt hemat-performa via CSS variables (tanpa re-render React)
   const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const el = cardRef.current;
     if (!el) return;
     const r = el.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5; // -0.5..0.5
+    const x = (e.clientX - r.left) / r.width - 0.5; 
     const y = (e.clientY - r.top) / r.height - 0.5;
     el.style.setProperty("--rx", `${y * -6}deg`);
     el.style.setProperty("--ry", `${x * 6}deg`);
@@ -143,7 +136,6 @@ function WorkCard({ work, delay = 0 }: { work: Work; delay?: number }) {
           transition: "transform 420ms cubic-bezier(.22,1,.36,1)",
         }}
       >
-        {/* depth glow border */}
         <div
           aria-hidden
           className="absolute inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition"
@@ -153,7 +145,6 @@ function WorkCard({ work, delay = 0 }: { work: Work; delay?: number }) {
           }}
         />
 
-        {/* shine sweep */}
         <motion.span
           aria-hidden
           className="absolute top-0 bottom-0 w-[65%] -left-[55%] -skew-x-[18deg] opacity-0 group-hover:opacity-100"
@@ -166,7 +157,6 @@ function WorkCard({ work, delay = 0 }: { work: Work; delay?: number }) {
           transition={{ duration: 1.4, ease: "easeInOut" }}
         />
 
-        {/* image */}
         <div className="aspect-[16/11] overflow-hidden">
           <img
             src={work.cover}
@@ -178,7 +168,6 @@ function WorkCard({ work, delay = 0 }: { work: Work; delay?: number }) {
           />
         </div>
 
-        {/* meta */}
         <div className="relative z-10 p-4 flex items-center justify-between">
           <div>
             <h3 className="font-medium">{work.title}</h3>
@@ -189,7 +178,6 @@ function WorkCard({ work, delay = 0 }: { work: Work; delay?: number }) {
           </div>
         </div>
 
-        {/* bottom fade */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-x-0 bottom-0 h-24"

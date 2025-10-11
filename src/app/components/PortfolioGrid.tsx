@@ -1,4 +1,3 @@
-// components/PortfolioGrid.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -33,7 +32,6 @@ function Card({
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
-  // Parallax hover
   const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const el = ref.current;
     if (!el) return;

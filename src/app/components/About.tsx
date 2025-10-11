@@ -21,7 +21,6 @@ export default function About() {
 
   return (
     <section id="about" className="relative py-24 md:py-32">
-      {/* BG gradient dimask biar gak “cut” */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
@@ -36,7 +35,6 @@ export default function About() {
       />
 
       <div ref={wrapRef} className="w-[min(1100px,92vw)] mx-auto">
-        {/* HEADER */}
         <div className="mb-10 md:mb-14">
           <h2 className="text-3xl md:text-4xl font-extrabold leading-none tracking-tight">
             {letters.map((ch, i) => (
@@ -67,12 +65,10 @@ export default function About() {
           />
         </div>
 
-        {/* GRID */}
         <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
           <InteractivePortrait src="/me.PNG" />
 
           <div className="space-y-8">
-            {/* BIO */}
             <motion.div
               variants={fadeUp}
               initial="hidden"
@@ -81,13 +77,12 @@ export default function About() {
               className="relative rounded-2xl p-6 bg-white/5 backdrop-blur-md border border-white/10"
             >
               <p className="text-slate-300 leading-relaxed">
-                Rangga is a multimedia specialist focused on crafting luxurious visuals across
-                film, design, and motion. Meticulous about rhythm, typography, and seamless
-                transitions—delivering work with a refined, premium feel.
+                I’m Rangga, a Motion Graphic Designer and Video Editor passionate about creating dynamic, engaging, and impactful visual content. 
+                I have worked on 22 microskill learning videos and produced Instagram Reels and posts, 
+                focusing on storytelling, creativity, and delivering professional results.
               </p>
             </motion.div>
 
-            {/* STATS */}
             <motion.ul
               variants={stagger}
               initial="hidden"
@@ -95,19 +90,16 @@ export default function About() {
               viewport={{ once: true }}
               className="grid grid-cols-3 gap-3 text-center"
             >
-              <Stat label="Projects" target={150} suffix="+" />
-              <Stat label="Experience" target={8} suffix=" yrs" />
+              <Stat label="Projects" target={20} suffix="+" />
+              <Stat label="Experience" target={1} suffix=" yrs" />
               <Stat label="Brands" target={20} suffix="+" />
             </motion.ul>
 
-            {/* SKILLS */}
             <SkillsGrid
               items={[
                 "DaVinci Resolve / Color",
                 "After Effects / Mograph",
                 "Premiere Pro / Editing",
-                "Figma / Design",
-                "Blender / 3D",
                 "Cinema Cameras",
               ]}
             />
@@ -117,10 +109,6 @@ export default function About() {
     </section>
   );
 }
-
-/* ========================= */
-/* Components                */
-/* ========================= */
 
 function InteractivePortrait({ src }: { src: string }) {
   const mx = useMotionValue(0);
@@ -175,7 +163,6 @@ function Stat({ label, target, suffix }: { label: string; target: number; suffix
   const ref = useRef<HTMLLIElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.8 });
 
-  // angka display tanpa ts-ignore
   const mv = useMotionValue(0);
   const [n, setN] = useState(0);
   useEffect(() => {

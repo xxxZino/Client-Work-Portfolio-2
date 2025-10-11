@@ -1,4 +1,3 @@
-// components/Contact.tsx
 "use client";
 
 import { motion, useMotionValue, useSpring } from "framer-motion";
@@ -7,7 +6,6 @@ import React, { useRef, useState } from "react";
 const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export default function ContactSection() {
-  // gentle parallax for the form card
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
   const sx = useSpring(mx, { stiffness: 120, damping: 18, mass: 0.25 });
@@ -34,7 +32,6 @@ export default function ContactSection() {
     e.preventDefault();
     setLoading(true);
 
-    // TODO: ganti dengan call API kamu sendiri
     await new Promise((r) => setTimeout(r, 900));
 
     setLoading(false);
@@ -43,7 +40,7 @@ export default function ContactSection() {
     e.currentTarget.reset();
   }
 
-  const email = "ranggajembut@gmail.com"; // pastikan valid biar mailto work
+  const email = "ranggajembut@gmail.com";
 
   return (
     <section className="relative">
@@ -69,7 +66,6 @@ export default function ContactSection() {
       </div>
 
       <div className="grid lg:grid-cols-[1.1fr_.9fr] gap-8 items-stretch">
-        {/* FORM CARD */}
         <motion.div
           ref={cardRef}
           onMouseMove={onMove}
@@ -122,7 +118,6 @@ export default function ContactSection() {
           </motion.div>
         </motion.div>
 
-        {/* QUICK CONTACT */}
         <motion.div
           initial={{ opacity: 0, y: 16, filter: "blur(6px)" }}
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -149,8 +144,6 @@ export default function ContactSection() {
     </section>
   );
 }
-
-/* ---------------- Field (floating label, single-border) ---------------- */
 
 type FieldProps = {
   id: string;
@@ -207,8 +200,6 @@ function Field({ id, name, label, textarea, type = "text", required }: FieldProp
   );
 }
 
-/* ---------------- Magnetic Button ---------------- */
-
 type MagneticButtonProps = {
   children: React.ReactNode;
   primary?: boolean;
@@ -253,7 +244,6 @@ function MagneticButton({ children, primary, type = "button", disabled }: Magnet
   );
 }
 
-/* ---------------- Contact Chip ---------------- */
 
 type ContactChipProps = { label: string; value: string; href?: string };
 

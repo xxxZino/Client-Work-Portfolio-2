@@ -1,4 +1,3 @@
-// components/Cursor.tsx
 "use client";
 import { motion, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";

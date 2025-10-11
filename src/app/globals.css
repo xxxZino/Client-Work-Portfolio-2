@@ -1,11 +1,9 @@
-/* app/globals.css */
 @import "tailwindcss";
 
-/* Brand tokens */
 :root {
-  --ink: #0b0f19;   /* deep near-black */
-  --blue: #1f6fff;  /* luxury royal blue */
-  --icy: #cfe9ff;   /* blue icy accent */
+  --ink: #0b0f19;   
+  --blue: #1f6fff;  
+  --icy: #cfe9ff;   
 }
 
 html, body {
@@ -19,7 +17,6 @@ html, body {
 
 html { scroll-behavior: smooth; }
 
-/* Luxury glass card */
 .glass {
   background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
   border: 1px solid rgba(207,233,255,0.18);
@@ -27,7 +24,6 @@ html { scroll-behavior: smooth; }
   backdrop-filter: blur(8px);
 }
 
-/* Icy gradient text */
 .text-icy {
   background: linear-gradient(90deg, var(--icy), #ffffff);
   -webkit-background-clip: text;
@@ -35,9 +31,8 @@ html { scroll-behavior: smooth; }
   color: transparent;
 }
 
-/* Preloader helpers */
 .loader-digit { font-variant-numeric: tabular-nums; }
 body.loading { overflow: hidden; }
 
 .section-safe { position: relative; isolation: isolate; }
-.bg-layer { position: absolute; inset: 0; pointer-events: none; z-index: 0; }  /* <- no negative z */
+.bg-layer { position: absolute; inset: 0; pointer-events: none; z-index: 0; }  

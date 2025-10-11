@@ -1,4 +1,3 @@
-// components/Footer.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -18,14 +17,12 @@ export function Footer() {
 
   return (
     <footer className="relative mt-20">
-      {/* gradient divider */}
       <div
         aria-hidden
         className="h-px w-full"
         style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent)" }}
       />
 
-      {/* mesh glow subtle */}
       <div
         aria-hidden
         className="pointer-events-none absolute -top-24 right-[-10%] h-[32rem] w-[32rem] rounded-full -z-10"
@@ -33,7 +30,6 @@ export function Footer() {
       />
 
       <div className="w-[min(1100px,92vw)] mx-auto py-12 md:py-14">
-        {/* top row */}
         <motion.div
           initial={{ opacity: 0, y: 10, filter: "blur(6px)" }}
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -41,7 +37,6 @@ export function Footer() {
           transition={{ duration: 0.6, ease: EASE }}  // ✅ pakai EASE
           className="flex flex-col md:flex-row md:items-center md:justify-between gap-6"
         >
-          {/* Brand */}
           <div className="flex items-center gap-3">
             <div
               className="h-8 w-8 rounded-xl"
@@ -57,7 +52,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Nav anchors */}
           <nav className="flex flex-wrap gap-4 text-sm text-slate-300">
             {([
               ["Home", "#home"],
@@ -72,7 +66,6 @@ export function Footer() {
             ))}
           </nav>
 
-          {/* Socials */}
           <div className="flex items-center gap-2">
             {socials.map(({ name, href, icon: Icon }) => (
               <motion.a
@@ -92,12 +85,11 @@ export function Footer() {
           </div>
         </motion.div>
 
-        {/* callout / email */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-10%" }}
-          transition={{ duration: 0.6, ease: EASE }}  // ✅ pakai EASE
+          transition={{ duration: 0.6, ease: EASE }}
           className="mt-10 rounded-3xl glass p-5 md:p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
         >
           <div>
@@ -123,7 +115,7 @@ export function Footer() {
 
         {/* bottom row */}
         <div className="mt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs text-slate-400">
-          <div>© {year} Rangga Arya Shena. Crafted with Next.js, Tailwind, and Framer Motion.</div>
+          <div>© {year} Rangga Arya Shena. All rights reserved.</div>
           <BackToTop />
         </div>
       </div>
@@ -131,7 +123,6 @@ export function Footer() {
   );
 }
 
-/* ===== Back To Top ===== */
 function BackToTop() {
   return (
     <motion.button
@@ -148,7 +139,6 @@ function BackToTop() {
   );
 }
 
-/* ====== Minimal inline SVG icons ====== */
 function Instagram({ className = "" }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="none">

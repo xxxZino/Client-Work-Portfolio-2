@@ -1,10 +1,8 @@
-// lib/constants.ts
 export const SKILLS = [
   "Video Editing",
   "Motion Graphic",
 ];
 
-// data untuk portfolio grid
 export type Work = {
   title: string;
   tag: string;

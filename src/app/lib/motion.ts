@@ -1,7 +1,5 @@
-// lib/motion.ts
 import { Variants } from "framer-motion";
 
-// fade dari bawah
 export const fadeUp: Variants = {
   hidden: { opacity: 0, y: 16 },
   show: {
@@ -11,7 +9,6 @@ export const fadeUp: Variants = {
   },
 };
 
-// fade biasa
 export const fade: Variants = {
   hidden: { opacity: 0 },
   show: {
@@ -20,7 +17,6 @@ export const fade: Variants = {
   },
 };
 
-// scale-in
 export const scaleIn: Variants = {
   hidden: { opacity: 0, scale: 0.96 },
   show: {
@@ -30,7 +26,6 @@ export const scaleIn: Variants = {
   },
 };
 
-// stagger container
 export const stagger: Variants = {
   hidden: {},
   show: {
@@ -38,7 +33,6 @@ export const stagger: Variants = {
   },
 };
 
-// blur masuk
 export const blurIn: Variants = {
   hidden: { opacity: 0, filter: "blur(8px)", y: 20 },
   show: {
@@ -49,7 +43,6 @@ export const blurIn: Variants = {
   },
 };
 
-// text reveal (clip path)
 export const textClip: Variants = {
   hidden: { opacity: 0, clipPath: "inset(0 0 100% 0)" },
   show: {
@@ -59,7 +52,6 @@ export const textClip: Variants = {
   },
 };
 
-// float Y (loop)
 export const floatY: Variants = {
   hidden: { y: 0 },
   show: {
@@ -68,7 +60,6 @@ export const floatY: Variants = {
   },
 };
 
-// rise in (fade + sedikit scale)
 export const riseIn: Variants = {
   hidden: { opacity: 0, y: 30, scale: 0.98 },
   show: {
@@ -79,7 +70,6 @@ export const riseIn: Variants = {
   },
 };
 
-// shimmer line effect
 export const shimmerLine: Variants = {
   hidden: { opacity: 0 },
   show: {

@@ -29,34 +29,20 @@ const SERVICES: Svc[] = [
     bullets: ["Kinetic typography", "Logo/packshot animation", "Explainers"],
     cta: "Animate It",
   },
-  {
-    key: "design",
-    title: "Design & Branding",
-    blurb:
-      "Visual systems, art direction, and graphics for a coherent, luxurious look across touchpoints.",
-    bullets: ["Art direction", "Graphic systems", "Campaign assets"],
-    cta: "Design Session",
-  },
 ];
 
-const EASE: Easing = [0.22, 1, 0.36, 1]; // ✅ typed bezier
+const EASE: Easing = [0.22, 1, 0.36, 1]; 
 
-/* =========================
-   Section
-========================= */
 export default function ServicesSection() {
   const [active, setActive] = useState<string>(SERVICES[0].key);
 
-  // (Optional) index aktif kalau nanti mau dipakai morphing yang lebih kompleks
   const activeIndex = useMemo(
     () => SERVICES.findIndex((s) => s.key === active),
     [active]
   );
-  void activeIndex; // avoid unused var lint
 
   return (
     <section className="relative overflow-hidden">
-      {/* BG blob yang morph mengikuti kartu aktif */}
       <motion.div
         key={active}
         aria-hidden
@@ -67,7 +53,7 @@ export default function ServicesSection() {
         }}
         initial={{ opacity: 0, scale: 0.95, rotate: -6 }}
         animate={{ opacity: 1, scale: 1, rotate: 0 }}
-        transition={{ duration: 0.9, ease: EASE }}  // ✅ typed ease
+        transition={{ duration: 0.9, ease: EASE }} 
       />
 
       {/* Showcase grid */}
@@ -92,9 +78,6 @@ export default function ServicesSection() {
   );
 }
 
-/* =========================
-   Service Card
-========================= */
 function ServiceCard({
   svc,
   index,
@@ -154,7 +137,6 @@ function ServiceCard({
           transition: "transform 420ms cubic-bezier(.22,1,.36,1)",
         }}
       >
-        {/* Shine sweep */}
         <motion.span
           aria-hidden
           className="absolute top-0 bottom-0 w-[60%] -left-[50%] -skew-x-[18deg] opacity-0 group-hover:opacity-100"
@@ -167,7 +149,6 @@ function ServiceCard({
           transition={{ duration: 1.3, ease: "easeInOut" }}
         />
 
-        {/* Badge */}
         <div className="flex items-center gap-2 text-[11px] text-slate-400">
           <div
             className="h-2 w-2 rounded-full"
@@ -179,13 +160,10 @@ function ServiceCard({
           <span>Service</span>
         </div>
 
-        {/* Title */}
         <h3 className="mt-2 text-lg font-semibold">{svc.title}</h3>
 
-        {/* Blurb */}
         <p className="mt-2 text-sm text-slate-300 leading-relaxed">{svc.blurb}</p>
 
-        {/* Bullets */}
         <ul className="mt-4 space-y-2 text-sm">
           {svc.bullets.map((b, i) => (
             <li key={i} className="flex items-center gap-2 text-slate-300">
@@ -195,12 +173,10 @@ function ServiceCard({
           ))}
         </ul>
 
-        {/* CTA magnetic */}
         <div className="mt-5">
           <MagneticButton primary label={svc.cta ?? "Enquire"} />
         </div>
 
-        {/* Active glow ring */}
         <AnimatePresence>
           {selected && (
             <motion.div
@@ -222,9 +198,7 @@ function ServiceCard({
   );
 }
 
-/* =========================
-   Magnetic Button
-========================= */
+
 function MagneticButton({
   label,
   primary = false,
@@ -267,9 +241,6 @@ function MagneticButton({
   );
 }
 
-/* =========================
-   Process Timeline (SVG auto-draw)
-========================= */
 function ProcessTimeline() {
   const steps = [
     ["Discovery", "Brief, goals, references"],
@@ -330,17 +301,11 @@ function ProcessTimeline() {
   );
 }
 
-/* =========================
-   Capabilities Chips
-========================= */
 function Capabilities() {
   const items = [
     "Color Grading",
     "Story & Rhythm",
-    "Kinetic Type",
     "Logo Animation",
-    "Art Direction",
-    "Brand Systems",
   ];
   return (
     <motion.ul

@@ -1,4 +1,3 @@
-// components/IntroSequence.tsx
 "use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
@@ -52,7 +51,6 @@ export default function IntroSequence({ onDone }: { onDone: () => void }) {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.45 } }}
         >
-          {/* subtle background glow + sweep */}
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0"
@@ -96,7 +94,6 @@ export default function IntroSequence({ onDone }: { onDone: () => void }) {
           </div>
 
           <div className="relative z-10 text-center">
-            {/* STEP: I am */}
             {step === "iam" && (
               <motion.h2
                 initial={{ opacity: 0, y: 12, filter: "blur(6px)" }}
@@ -108,7 +105,6 @@ export default function IntroSequence({ onDone }: { onDone: () => void }) {
               </motion.h2>
             )}
 
-            {/* STEP: Name (per-huruf) */}
             {step === "name" && (
               <div className="inline-block">
                 <h1 className="text-4xl md:text-7xl font-bold leading-tight">
@@ -137,7 +133,6 @@ export default function IntroSequence({ onDone }: { onDone: () => void }) {
                   ))}
                 </h1>
 
-                {/* underline sweep */}
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: "min(420px, 70vw)" }}
@@ -151,7 +146,6 @@ export default function IntroSequence({ onDone }: { onDone: () => void }) {
               </div>
             )}
 
-            {/* STEP: Skills */}
             {step === "skills" && (
               <div className="inline-block">
                 <motion.h1

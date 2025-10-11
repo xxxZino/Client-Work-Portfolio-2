@@ -1,4 +1,3 @@
-// components/Hero.tsx
 "use client";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useMemo, useRef } from "react";
@@ -7,7 +6,6 @@ import { stagger, textClip, blurIn, fade, floatY } from "../lib/motion";
 const HEADLINE = "Designing visuals that move, stories that last.";
 
 export default function Hero() {
-  // ----- Cursor parallax (tilt halus)
   const cx = useMotionValue(0);
   const cy = useMotionValue(0);
   const rx = useSpring(cy, { stiffness: 80, damping: 16 });
@@ -24,18 +22,15 @@ export default function Hero() {
   };
   const onLeave = () => { cx.set(0); cy.set(0); };
 
-  // ----- Tokenize headline otomatis (pisah kapital/—/spasi)
   const tokens = useMemo(() => {
     const s = HEADLINE.replace(/–|—/g, " — ");
     return s
-      .split(/(?=[A-Z])|\s+/) // split sebelum huruf besar atau spasi
+      .split(/(?=[A-Z])|\s+/) 
       .filter(Boolean);
   }, []);
 
-  // Kata yang dikasih aksen icy
   const accent = new Set(["Rangga", "Shena", "Creator"]);
 
-  // Sparkles posisi
   const stars = [
     { left: "10%", top: "22%" },
     { left: "28%", top: "34%" },
@@ -45,16 +40,13 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative overflow-hidden pt-28 md:pt-36 pb-20">
-      {/* === BG WRAPPER dengan fade-out di bawah === */}
       <div
         className="pointer-events-none absolute inset-0 z-0"
-        // fade 78% → 100% ke transparan, hilangin cut-line
         style={{
           WebkitMaskImage: "linear-gradient(to bottom, black 78%, transparent 100%)",
           maskImage: "linear-gradient(to bottom, black 78%, transparent 100%)",
         }}
       >
-        {/* Mesh circle A */}
         <motion.div
           aria-hidden
           className="absolute -top-24 -left-24 h-[40rem] w-[40rem] rounded-full"
@@ -63,7 +55,6 @@ export default function Hero() {
           animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
           transition={{ duration: 1.2 }}
         />
-        {/* Mesh circle B */}
         <motion.div
           aria-hidden
           className="absolute top-[25%] right-[-14%] h-[52rem] w-[52rem] rounded-full"
@@ -72,7 +63,6 @@ export default function Hero() {
           animate={{ opacity: 1, x: 0, y: 0, scale: 1, rotate: 0 }}
           transition={{ duration: 1.4 }}
         />
-        {/* Light sweep */}
         <motion.div
           aria-hidden
           className="absolute -inset-y-20 -left-1/3 w-[70%] rotate-[12deg]"
@@ -84,7 +74,6 @@ export default function Hero() {
           animate={{ x: "20%" }}
           transition={{ duration: 8, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
         />
-        {/* Grid halus */}
         <motion.svg
           aria-hidden
           className="absolute inset-0 opacity-[0.07]"
@@ -103,7 +92,6 @@ export default function Hero() {
         </motion.svg>
       </div>
 
-      {/* Sparkles hidup (kecil, tidak norak) */}
       {stars.map((p, i) => (
         <motion.span
           key={i}
@@ -120,7 +108,6 @@ export default function Hero() {
         />
       ))}
 
-      {/* ---------- CONTENT (parallax tilt) ---------- */}
       <motion.div
         ref={ref}
         onMouseMove={onMove}
@@ -131,7 +118,6 @@ export default function Hero() {
         initial="hidden"
         animate="show"
       >
-        {/* Headline split-reveal */}
         <h1 className="font-bold leading-tight text-[2rem] md:text-5xl lg:text-6xl">
           {tokens.map((w, i) => (
             <motion.span
@@ -148,7 +134,6 @@ export default function Hero() {
           ))}
         </h1>
 
-        {/* underline sweep (lebih pendek biar classy) */}
         <motion.div
           variants={fade}
           className="mt-3 h-[2px] w-0 rounded-full"
@@ -157,14 +142,12 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
         />
 
-        {/* subcopy */}
         <motion.p variants={blurIn} className="mt-5 max-w-2xl text-slate-300">
           Focused on cinematic video editing, motion graphics, and luxury visual design—crafted with tasteful transitions and premium pacing.
         </motion.p>
 
-        {/* chips (stagger masuk) */}
         <motion.ul variants={stagger} className="mt-6 flex flex-wrap gap-2">
-          {["Video Editing","Motion Graphic", ""].map((t, i) => (
+          {["Video Editing","Motion Graphic"].map((t, i) => (
             <motion.li
               key={t}
               initial={{ opacity: 0, y: 8 }}
@@ -177,7 +160,6 @@ export default function Hero() {
           ))}
         </motion.ul>
 
-        {/* CTA (magnetic micro-interaction) */}
         <div className="mt-8 flex gap-3">
           <MagneticButton href="#works" primary>View Works</MagneticButton>
           <MagneticButton href="#contact">Contact</MagneticButton>
@@ -187,7 +169,6 @@ export default function Hero() {
   );
 }
 
-/* Tombol "magnetic" lembut */
 function MagneticButton({
   href,
   children,

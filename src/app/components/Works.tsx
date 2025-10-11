@@ -1,4 +1,3 @@
-// components/Works.tsx
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
@@ -76,7 +75,6 @@ function WorkCard({ work, delay = 0 }: { work: Work; delay?: number }) {
           transition: "transform 420ms cubic-bezier(.22,1,.36,1)",
         }}
       >
-        {/* depth glow */}
         <div
           aria-hidden
           className="absolute inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition"
@@ -85,7 +83,6 @@ function WorkCard({ work, delay = 0 }: { work: Work; delay?: number }) {
               "0 0 0 1px rgba(207,233,255,0.18) inset, 0 20px 60px rgba(0,0,0,0.35)",
           }}
         />
-        {/* shine sweep */}
         <motion.span
           aria-hidden
           className="absolute top-0 bottom-0 w-[65%] -left-[55%] -skew-x-[18deg] opacity-0 group-hover:opacity-100"
@@ -97,7 +94,6 @@ function WorkCard({ work, delay = 0 }: { work: Work; delay?: number }) {
           whileHover={{ left: "110%" }}
           transition={{ duration: 1.4, ease: "easeInOut" }}
         />
-        {/* image */}
         <div className="aspect-[16/11] overflow-hidden">
           <img
             src={work.cover}
@@ -117,7 +113,6 @@ function WorkCard({ work, delay = 0 }: { work: Work; delay?: number }) {
             View →
           </div>
         </div>
-        {/* bottom fade */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
