@@ -6,9 +6,9 @@ import type { Easing } from "framer-motion";
 const EASE: Easing = [0.22, 1, 0.36, 1];
 
 const socials = [
-  { name: "Instagram", href: "https://instagram.com/", icon: Instagram },
+  { name: "Instagram", href: "https://www.instagram.com/shennn_113?igsh=MTRjMmxrdnUyMWI2Yw%3D%3D&utm_source=qr", icon: Instagram },
   { name: "YouTube",   href: "https://youtube.com/",   icon: Youtube   },
-  { name: "LinkedIn",  href: "https://linkedin.com/in/your-username", icon: Linkedin },
+  { name: "LinkedIn",  href: "https://www.linkedin.com/in/rangga-arya-shena", icon: Linkedin },
 ];
 
 export function Footer() {
@@ -93,17 +93,17 @@ export function Footer() {
         >
           <div>
             <div className="text-sm text-slate-400">Let’s work together</div>
-            <div className="text-lg font-medium">ranggajembut@kontol</div>
+            <div className="text-lg font-medium">aryashenarangga@gmail.com</div>
           </div>
           <div className="flex gap-3">
             <a
-              href="mailto:hello@rangga.work"
+              href="mailto:aryashenarangga@gmail.com"
               className="rounded-xl px-4 py-2 bg-[var(--blue)] text-white text-sm font-medium hover:opacity-90 transition"
             >
               Email Me
             </a>
             <a
-              href="https://wa.me/6281234567890"
+              href="https://wa.me/6285183203945"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-xl px-4 py-2 border border-white/20 text-sm hover:bg-white/5 transition"

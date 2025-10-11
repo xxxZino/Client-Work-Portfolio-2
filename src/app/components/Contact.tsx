@@ -40,7 +40,7 @@ export default function ContactSection() {
     e.currentTarget.reset();
   }
 
-  const email = "ranggajembut@gmail.com";
+  const email = "aryashenarangga@gmail.com";
 
   return (
     <section className="relative">
@@ -96,7 +96,7 @@ export default function ContactSection() {
                 Email Instead
               </a>
               <a
-                href="https://wa.me/6281234567890"
+                href="https://wa.me/6285183203945"
                 target="_blank"
                 rel="noreferrer"
                 className="rounded-xl px-4 py-2 border border-white/20 hover:bg-white/5 text-sm"
@@ -131,8 +131,8 @@ export default function ContactSection() {
 
             <div className="mt-5 grid grid-cols-2 gap-3">
               <ContactChip label="Email" value={email} href={`mailto:${email}`} />
-              <ContactChip label="Phone" value="+62 812-3456-7890" href="tel:+6281234567890" />
-              <ContactChip label="Instagram" value="@rangga" href="https://instagram.com/" />
+              <ContactChip label="Phone" value="+62 851-8320-3945" href="tel:+6285183203945" />
+              <ContactChip label="Instagram" value="@shennn_113" href="https://www.instagram.com/shennn_113?igsh=MTRjMmxrdnUyMWI2Yw%3D%3D&utm_source=qr" />
             </div>
           </div>
 
