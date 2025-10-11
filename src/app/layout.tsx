@@ -10,8 +10,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Rangga – Portfolio",
-  description: "Luxury, elegant, and smooth portfolio for multimedia specialist.",
+  title: "Rangga Portfolio",
+  description: "crot",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
