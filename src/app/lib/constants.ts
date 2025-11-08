@@ -12,39 +12,40 @@ export type Work = {
 
 export const WORKS: Work[] = [
   {
-    title: "Brand Reel 2025",
-    tag: "Video",
-    cover:
-      "https://images.unsplash.com/photo-1489805549589-3c5ae55fe9a8?q=80&w=1600&auto=format&fit=crop",
+    title: "Project Internship 1",
+    tag: "bahaya judi online",
+    cover:"/internship.jpg",
+    href:"https://drive.google.com/file/d/15VyGHP_tea_xh1SATwCZVmEh_kJQTa99/view?usp=drive_link",
   },
   {
-    title: "Motion Poster – ICE",
-    tag: "Motion",
-    cover:
-      "https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=1600&auto=format&fit=crop",
+    title: "Project Internship 2",
+    tag: "micro skill implementasi pancasila",
+    cover:"/internship.jpg",
+    href: "https://drive.google.com/file/d/1AI2kcgxvJwqaDVa2tQ7LmdBrgYsEbMdp/view?usp=drive_link",
+  },
+
+  {
+    title: "Project Internship 3",
+    tag: "smart village",
+    cover:"/internship.jpg",
+    href: "https://drive.google.com/file/d/1dd7kAN9b3QC-QlARwXih60TzPKU8RX4I/view?usp=drive_link" ,
   },
   {
-    title: "Album Artwork",
-    tag: "Design",
-    cover:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop",
+    title: "Cinematic",
+    tag: "",
+    cover:"video.jpg",
+    href: "https://drive.google.com/file/d/15VyGHP_tea_xh1SATwCZVmEh_kJQTa99/view?usp=drive_link",
   },
   {
-    title: "Cinematic Short",
-    tag: "Video",
-    cover:
-      "https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=1600&auto=format&fit=crop",
+    title: "E-Commerce",
+    tag: "",
+    cover:"/marketing.jpg",
+    href: "https://drive.google.com/file/d/15VyGHP_tea_xh1SATwCZVmEh_kJQTa99/view?usp=drive_link",
   },
   {
-    title: "Campaign Visuals",
-    tag: "Design",
-    cover:
-      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    title: "Lookbook Photo",
-    tag: "Photo",
-    cover:
-      "https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=1600&auto=format&fit=crop",
+    title: "Motion Graphic",
+    tag: "",
+    cover:"motionG.jpg",
+    href: "https://drive.google.com/file/d/15VyGHP_tea_xh1SATwCZVmEh_kJQTa99/view?usp=drive_link",
   },
 ];
