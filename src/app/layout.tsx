@@ -11,7 +11,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Rangga Portfolio",
-  description: "crot",
+  description: "nothing",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
