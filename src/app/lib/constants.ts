@@ -12,23 +12,10 @@ export type Work = {
 
 export const WORKS: Work[] = [
   {
-    title: "Project Internship 1",
-    tag: "bahaya judi online",
+    title: "Project Internship",
+    tag: "",
     cover:"/internship.jpg",
     href:"https://drive.google.com/drive/folders/13bqTifwWee9CaWJ8XnD33nYUxs-CixZO",
-  },
-  {
-    title: "Project Internship 2",
-    tag: "micro skill implementasi pancasila",
-    cover:"/internship.jpg",
-    href: "https://drive.google.com/drive/folders/13bqTifwWee9CaWJ8XnD33nYUxs-CixZO",
-  },
-
-  {
-    title: "Project Internship 3",
-    tag: "smart village",
-    cover:"/internship.jpg",
-    href: "https://drive.google.com/drive/folders/13bqTifwWee9CaWJ8XnD33nYUxs-CixZO" ,
   },
   {
     title: "Cinematic",
