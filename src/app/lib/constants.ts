@@ -34,18 +34,18 @@ export const WORKS: Work[] = [
     title: "Cinematic",
     tag: "",
     cover:"video.jpg",
-    href: "https://drive.google.com/file/d/15VyGHP_tea_xh1SATwCZVmEh_kJQTa99/view?usp=drive_link",
+    href: "https://drive.google.com/drive/folders/1QXUFYZaB6NfH0d4j3BZr718lfV1T38fc",
   },
   {
     title: "Freelance",
     tag: "",
     cover:"/freelance.png",
-    href: "https://drive.google.com/file/d/1CQMxWHRuphjOgLRgvRfpIr4-b6DwORXa/view?usp=drive_link",
+    href: "https://drive.google.com/drive/folders/12fBQKohwXVtWlIe0CWmIhVRKz_cv_ZPi",
   },
   {
     title: "Motion Graphic",
     tag: "",
     cover:"motionG.jpg",
-    href: "https://drive.google.com/file/d/1WQAZegfjS0_vFnROMXlwg8EKbj3ET3wF/view?usp=drive_link",
+    href: "https://drive.google.com/drive/folders/1vLG5utvMspSXszF5cKKonmhE8iXRPML1",
   },
 ];
